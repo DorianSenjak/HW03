@@ -1,4 +1,5 @@
 #include<iostream>
+#include<windows.h>
 using namespace std;
 
 struct dot {
@@ -28,7 +29,7 @@ int main() {
 
     if (A.y < B.y)
     {
-        star.x = A.x + 1;
+        star.y = A.y + 1;
     }
     if (A.y > B.y)
     {
@@ -56,59 +57,57 @@ int main() {
             {
                 matrix[i][j] = "B";
             }
-            else if (star.y == i && star.x == j) {
-                matrix[i][j] = "*";
-            }
             else
             matrix[i][j] = "-";
-
+            
 
             
         }
     }
     
-    bool check;
-  
-    if (star.y == B.y - 1 || star.y == B.y +1)
-    {
-        if (star.x == B.x - 1 || star.x == B.x + 1)
-        {
-            check = false;
-        }
-        
-    }
-    
+    bool check = true;
     
     //output
     do
     {
+    bool swapped = false;
+    Sleep(1000);
+    system("cls");
+
         for (int i = 0; i < 20; i++)
         {
             for (int j = 0; j < 40; j++)
             {
                 cout << matrix[i][j];
+                if (star.x==i && star.y == j)
+                {
+                    matrix[i][j]="*";
+                    matrix[i-1][j-1]="-";
+                }
+                
             }
             cout << endl;
         }
 
         //swaping star position
-        if (A.x < B.x)
+        if (star.x < B.x)
         {
             star.x = star.x + 1;
         }
-        if (A.x > B.x)
+        if (star.x > B.x)
         {
             star.x = star.x - 1;
         }
-        if (A.y < B.y)
+        if (star.y < B.y)
         {
             star.y = star.y + 1;
         }
-        if (A.y > B.y)
+        if (star.y > B.y)
         {
             star.y = star.y - 1;
         }
         
+        //checking if the task is done
         if (star.y == B.y - 1 || star.y == B.y +1)
     {
         if (star.x == B.x - 1 || star.x == B.x + 1)
