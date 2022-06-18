@@ -124,7 +124,7 @@ int main() {
             {
                 if (swap==true)
                 {
-                    matrix[i-1][j-1]="-";
+                   // matrix[i-1][j-1]="-";
                 }
                 
             }
