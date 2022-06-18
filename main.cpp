@@ -25,23 +25,32 @@ int main() {
     B.x = B.x - 1;
 
     dot star{};
-    star.y = A.y;
-
-    if (A.y < B.y)
+    //star start position setup
+    if (A.x < B.x)
+    {
+        star.x = A.x + 1;
+    }
+    if (A.x > B.x)
+    {
+        star.x= A.x - 1;
+    }
+    if (A.y < B.y && A.x == B.x)
     {
         star.y = A.y + 1;
+        star.x = A.x;
     }
-    if (A.y > B.y)
+    if (A.y > B.y && A.x == B.x)
     {
-        star.x = A.x - 1;
-    }
-    if (A.x == B.x && A.y > B.y) {
         star.y = A.y - 1;
         star.x = A.x;
     }
-    if (A.x == B.x && A.y < B.y) {
-        star.y = A.y + 1;
-        star.x = A.x;
+    if (A.y == B.y && A.x < B.x) {
+        star.x = A.x + 1;
+        star.y = A.y;
+    }
+    if (A.y == B.y && A.x > B.x) {
+        star.x = A.x -1;
+        star.y = A.y;
     }
 
     static string matrix[20][40];
@@ -70,52 +79,64 @@ int main() {
     //output
     do
     {
-    bool swapped = false;
-    Sleep(1000);
+    bool swap = false;
+    Sleep(100);
     system("cls");
 
         for (int i = 0; i < 20; i++)
         {
             for (int j = 0; j < 40; j++)
             {
-                cout << matrix[i][j];
-                if (star.x==i && star.y == j)
+                 if (star.y==i && star.x == j)
                 {
                     matrix[i][j]="*";
-                    matrix[i-1][j-1]="-";
                 }
-                
+                cout << matrix[i][j];
             }
             cout << endl;
         }
 
         //swaping star position
-        if (star.x < B.x)
+        if (star.x < B.x && swap == false)
         {
             star.x = star.x + 1;
+            swap = true;
         }
-        if (star.x > B.x)
+        if (star.x > B.x && swap == false)
         {
             star.x = star.x - 1;
+            swap = true;
         }
-        if (star.y < B.y)
+        if (star.y < B.y && swap == false)
         {
             star.y = star.y + 1;
+            swap = true;
         }
-        if (star.y > B.y)
+        if (star.y > B.y && swap == false)
         {
             star.y = star.y - 1;
+            swap = true;
+        }
+
+        for (int i = 0; i < 20; i++)
+        {
+            for (int j = 0; j < 40; j++)
+            {
+                if (swap==true)
+                {
+                    matrix[i-1][j-1]="-";
+                }
+                
+            }
+            
         }
         
+        
         //checking if the task is done
-        if (star.y == B.y - 1 || star.y == B.y +1)
-    {
-        if (star.x == B.x - 1 || star.x == B.x + 1)
+        if (star.y == B.y  && star.x == B.x)
         {
             check = false;
         }
-        
-    }
         
     } while (check);
     return 0;
