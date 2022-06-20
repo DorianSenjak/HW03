@@ -26,6 +26,7 @@ int main() {
 
     dot star{};
     //star start position setup
+    star.y = A.y;
     if (A.x < B.x)
     {
         star.x = A.x + 1;
