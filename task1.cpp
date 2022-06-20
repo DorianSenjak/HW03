@@ -108,21 +108,7 @@ int main() {
         {
             star.y = star.y - 1;
             swap = true;
-        }
-
-        for (int i = 0; i < 20; i++)
-        {
-            for (int j = 0; j < 40; j++)
-            {
-                if (swap==true)
-                {
-                   // matrix[i-1][j-1]="-";
-                }
-                
-            }
-            
-        }
-        
+        }        
         
         //checking if the task is done
         if (star.y == B.y  && star.x == B.x)
