@@ -58,14 +58,8 @@ int main() {
     }
 
     static string matrix[20][40];
-    array<string, 5> obstacles;
+    array<string, 5> obstacles {"*", "*", "*", "*", "*"};
     bool check = true;
-    int i = 0;
-    for (auto& i : obstacles)
-    {
-        obstacles[i] = "*";
-        i++;
-    }
     
 
     //output
