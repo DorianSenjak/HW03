@@ -58,8 +58,13 @@ int main() {
     }
 
     static string matrix[20][40];
-    array<string, 5> obstacles {"*", "*", "*", "*", "*"};
+    array<dot, 10> obstacles;
     bool check = true;
+    for (size_t i = 0; i < obstacles.size(); i++)
+    {
+        obstacles[i].x = 15;
+        obstacles[i].y = i;
+    }
     
 
     //output
@@ -70,9 +75,9 @@ int main() {
     {
         check = false;
     }
-       
+    //setup
     bool swap = false;
-    Sleep(100);
+    Sleep(50);
     system("cls");
 
         for (int i = 0; i < 20; i++)
@@ -93,6 +98,16 @@ int main() {
             {
                  matrix[i][j]="x";
             }
+            for(int n = 0; n < obstacles.size(); n++)
+            {
+                if (obstacles[n].x == j && obstacles[n].y == i)
+                {
+                    matrix[i][j] = "*";
+                }
+                
+            }
+            
+            
             cout << matrix[i][j];
             }
             cout << endl;
