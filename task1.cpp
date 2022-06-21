@@ -61,6 +61,12 @@ int main() {
     //output
     do
     {
+    //checking if the task is done
+    if (star.y == B.y  && star.x == B.x)
+    {
+        check = false;
+    }
+       
     bool swap = false;
     Sleep(100);
     system("cls");
@@ -81,7 +87,7 @@ int main() {
             matrix[i][j] = "-";
             if (star.y==i && star.x == j)
             {
-                 matrix[i][j]="*";
+                 matrix[i][j]="x";
             }
             cout << matrix[i][j];
             }
@@ -110,11 +116,6 @@ int main() {
             swap = true;
         }        
         
-        //checking if the task is done
-        if (star.y == B.y  && star.x == B.x)
-        {
-            check = false;
-        }
         
     } while (check);
     return 0;
