@@ -156,5 +156,6 @@ int main() {
         
         
     } while (check);
+    system("PAUSE");
     return 0;
 }
