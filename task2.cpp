@@ -77,6 +77,8 @@ int main() {
     }
     //setup
     bool swap = false;
+    bool moveX = true;
+    bool moveY = true;
     Sleep(50);
     system("cls");
 
@@ -97,6 +99,8 @@ int main() {
             if (star.y==i && star.x == j)
             {
                  matrix[i][j]="x";
+                 
+            //obstacle magic
             }
             for(int n = 0; n < obstacles.size(); n++)
             {
@@ -106,6 +110,18 @@ int main() {
                 }
                 
             }
+            for (int n = 0; n < obstacles.size(); n++)
+            {
+                if (star.x + 1 == obstacles[n].x && star.y == obstacles[n].y)
+                {
+                    moveX = false;
+                }
+                if (star.y + 1 == obstacles[n].y && star.x == obstacles[n].y)
+                {
+                    moveY = false;
+                }
+            }
+            
             
             
             cout << matrix[i][j];
@@ -113,23 +129,26 @@ int main() {
             cout << endl;
         }
 
+        
+        
+
         //swaping star position
-        if (star.x < B.x && swap == false)
+        if (star.x < B.x && swap == false && moveX == true)
         {
             star.x = star.x + 1;
             swap = true;
         }
-        if (star.x > B.x && swap == false)
+        if (star.x > B.x && swap == false && moveX == true)
         {
             star.x = star.x - 1;
             swap = true;
         }
-        if (star.y < B.y && swap == false)
+        if (star.y < B.y && swap == false&& moveY == true)
         {
             star.y = star.y + 1;
             swap = true;
         }
-        if (star.y > B.y && swap == false)
+        if (star.y > B.y && swap == false&& moveY == true)
         {
             star.y = star.y - 1;
             swap = true;
