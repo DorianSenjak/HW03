@@ -79,7 +79,7 @@ int main() {
     bool swap = false;
     bool moveX = true;
     bool moveY = true;
-    Sleep(50);
+    Sleep(100);
     system("cls");
 
         for (int i = 0; i < 20; i++)
