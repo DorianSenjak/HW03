@@ -116,7 +116,15 @@ int main() {
                 {
                     moveX = false;
                 }
+                if (star.x - 1 == obstacles[n].x && star.y == obstacles[n].y)
+                {
+                    moveX = false;
+                }
                 if (star.y + 1 == obstacles[n].y && star.x == obstacles[n].y)
+                {
+                    moveY = false;
+                }
+                if (star.y - 1 == obstacles[n].y && star.x == obstacles[n].y)
                 {
                     moveY = false;
                 }
